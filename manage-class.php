@@ -1,30 +1,32 @@
 <?php
-// session_start();
-// include ('config.php');
-// if (isset($_POST['register'])) {
-// $fullname = $_POST['fullname'];
-// $email = $_POST['email'];
-// $password = $_POST['password'];
-// $password_hash = password_hash($password, PASSWORD_BCRYPT);
-// $query = $connection->prepare("SELECT * FROM users WHERE email=:email");
-// $query->bindParam("email", $email, PDO::PARAM_STR);
-// $query->execute();
-// if ($query->rowCount() > 0) {
-// echo '<p class="error">The email address is already registered!</p>';
-// }
-// if ($query->rowCount() == 0) {
-// $query = $connection->prepare("INSERT INTO users(fullname,password,email) VALUES (:fullname,:password_hash,:email)");
-// $query->bindParam("fullname", $fullname, PDO::PARAM_STR);
-// $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-// $query->bindParam("email", $email, PDO::PARAM_STR);
-// $result = $query->execute();
-// if ($result) {
-// echo '<p class="success">Your registration was successful!</p>';
-// } else {
-// echo '<p class="error">Something went wrong!</p>';
-// }
-// }
-// }
+session_start();
+include ('config.php');
+if (isset($_POST['create-class'])) {
+    // $fullname = $_POST['fullname'];
+    // $email = $_POST['email'];
+    // $password = $_POST['password'];
+    // $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    // $query = $connection->prepare("SELECT * FROM users WHERE email=:email");
+    // $query->bindParam("email", $email, PDO::PARAM_STR);
+    // $query->execute();
+    // if ($query->rowCount() > 0) {
+    // echo '<p class="error">The email address is already registered!</p>';
+    // }
+    // if ($query->rowCount() == 0) {
+    // $query = $connection->prepare("INSERT INTO users(fullname,password,email) VALUES (:fullname,:password_hash,:email)");
+    // $query->bindParam("fullname", $fullname, PDO::PARAM_STR);
+    // $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+    // $query->bindParam("email", $email, PDO::PARAM_STR);
+    // $result = $query->execute();
+    // if ($result) {
+    // echo '<p class="success">Your registration was successful!</p>';
+    // } else {
+    // echo '<p class="error">Something went wrong!</p>';
+    // }
+    // }
+} else if (isset($_POST['update-class'])) {
+    echo '<p class="error">Something went wrong!</p>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -114,8 +116,7 @@ p.error {
 		</div>
 
 		<div class="form-element">
-			<label>Date</label>
-			<input type="date" id="birthday" name="birthday">
+			<label>Date</label> <input type="date" id="birthday" name="birthday">
 		</div>
 
 		<div class="form-element">
@@ -145,7 +146,7 @@ p.error {
 			<button type="submit" name="update-class" value="update-class">Update
 				Class</button>
 		</div>
-		
+
 	</form>
 </body>
 </html>

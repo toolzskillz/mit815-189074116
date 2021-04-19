@@ -1,7 +1,7 @@
 --create user -- 
 CREATE TABLE `users` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-    `username` varchar(25) NOT NULL,
+    `fullname` varchar(25) NOT NULL,
     `password` varchar(255) NOT NULL,
     `email` varchar(100) NOT NULL,
     PRIMARY KEY (`id`),

@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// include ('config.php');
+session_start();
+include ('config.php');
 if (isset($_POST['users'])) {
     header('Location: manage-users.php');
     exit();
@@ -8,6 +8,8 @@ if (isset($_POST['users'])) {
     header('Location: manage-class.php');
 } else if (isset($_POST['venues'])) {
     header('Location: manage-venues.php');
+} else if (isset($_POST['logout'])) {
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -75,6 +77,17 @@ button {
 	border: none;
 }
 
+button.nav-element {
+	padding: 10px;
+	font-size: 1.5rem;
+	font-family: 'Lato';
+	font-weight: 100;
+	background: blue;
+	color: white;
+	width: 300px;
+	border: none;
+}
+
 p.success, p.error {
 	color: white;
 	font-family: lato;
@@ -103,6 +116,12 @@ p.error {
 
 		<div class="form-element">
 			<button type="submit" name="venues" value="venues">Manage Venues</button>
+		</div>
+
+
+		<div class="form-element">
+			<button class="nav-element" type="submit" name="logout"
+				value="logout">Log Out</button>
 		</div>
 
 	</form>
