@@ -82,7 +82,7 @@ button.nav-element {
 	font-size: 1.5rem;
 	font-family: 'Lato';
 	font-weight: 100;
-	background: blue;
+	background: red;
 	color: white;
 	width: 300px;
 	border: none;

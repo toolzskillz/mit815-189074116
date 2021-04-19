@@ -118,9 +118,6 @@ p.error {
 			<label>Password</label> <input type="password" name="password"
 				required />
 		</div>
-		<div class="form-element">
-			<input type="checkbox" name="checkbox" /> <label>Administrator</label>
-		</div>
 
 		<button type="submit" name="login" value="login">Log In</button>
 	</form>
