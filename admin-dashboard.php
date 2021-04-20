@@ -3,12 +3,17 @@ session_start();
 include ('config.php');
 if (isset($_POST['users'])) {
     header('Location: manage-users.php');
-} else if (isset($_POST['class'])) {
+}
+if (isset($_POST['class'])) {
     header('Location: manage-class.php');
-} else if (isset($_POST['venues'])) {
+}
+if (isset($_POST['venues'])) {
     header('Location: manage-venues.php');
-} else if (isset($_POST['logout'])) {
+}
+
+if (isset($_POST['logout-admin'])) {
     header('Location: login.php');
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -103,7 +108,7 @@ p.error {
 <body>
 
 	<h2>Administrator Dashboard</h2>
-	<form method="post" action="" name="signin-form">
+	<form method="post" action="" name="admin-dashboard">
 
 		<div class="form-element">
 			<button type="submit" name="users" value="users">Manage Users</button>
@@ -119,8 +124,8 @@ p.error {
 
 
 		<div class="form-element">
-			<button class="nav-element" type="submit" name="logout"
-				value="logout">Log Out</button>
+			<button class="nav-element" type="submit" name="logout-admin"
+				value="logout-admin">Log Out</button>
 		</div>
 	</form>
 

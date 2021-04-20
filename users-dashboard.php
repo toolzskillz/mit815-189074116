@@ -1,58 +1,109 @@
+<?php
+session_start();
+include ('config.php');
+if (isset($_POST['logout-user'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Single Payment</title>
+<title>User</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 <style type="text/css">
-body {
-	font: 14px sans-serif;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
-.wrapper {
-	width: 750px;
+body {
+	margin: 50px auto;
+	text-align: center;
+	width: 800px;
+}
+
+h1 {
+	font-family: 'Passion One';
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+label {
+	width: 150px;
+	display: inline-block;
+	text-align: left;
+	font-size: 1.5rem;
+	font-family: 'Lato';
+}
+
+input {
+	border: 2px solid #ccc;
+	font-size: 1.5rem;
+	font-weight: 100;
+	font-family: 'Lato';
+	padding: 10px;
+}
+
+form {
+	margin: 25px auto;
 	padding: 20px;
+	border: 5px solid #ccc;
+	width: 500px;
+	background: #eee;
+}
+
+div.form-element {
+	margin: 20px 0;
+}
+
+button {
+	padding: 10px;
+	font-size: 1.5rem;
+	font-family: 'Lato';
+	font-weight: 100;
+	background: blue;
+	color: white;
+	width: 300px;
+	border: none;
+}
+
+button.nav-element {
+	padding: 10px;
+	font-size: 1.5rem;
+	font-family: 'Lato';
+	font-weight: 100;
+	background: red;
+	color: white;
+	width: 300px;
+	border: none;
+}
+
+p.success, p.error {
+	color: white;
+	font-family: lato;
+	background: yellowgreen;
+	display: inline-block;
+	padding: 2px 10px;
+}
+
+p.error {
+	background: orangered;
 }
 </style>
 </head>
 <body>
-	<div class="wrapper">
-		<h2>Single Payment</h2>
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
-			method="post">
-<div>
-				<label>URL</label> <input type="text" name="url"
-					class="form-control" value="<?php echo $credentials->url ; ?>">
-			</div>
-			<div>
-				<label>Merchant Id</label> <input type="text" name="merchantid"
-					class="form-control"
-					value="<?php echo $credentials->merchantId ; ?>">
-			</div>
-			<div>
-				<label>Api key</label> <input type="text" name="apikey"
-					class="form-control" value="<?php echo $credentials->apiKey ; ?>">
-			</div>
-			<div>
-				<label>Api Token</label> <input type="text" name="apitoken"
-					class="form-control" value="<?php echo $credentials->apiToken ; ?>">
-			</div>
-			<div>
-				<label>Vector</label> <input type="text" name="iv"
-					class="form-control" value="<?php echo $credentials->iv ; ?>">
-			</div>
-			<div>
-				<label>Key</label> <input type="text" name="key"
-					class="form-control" value="<?php echo $credentials->key ; ?>">
-			</div>
-			<br>
 
+	<h2>Hello, Mr/Mrs</h2>
+	<form method="post" action="" name="users-dashboard">
+		<div class="form-element">
+			<button class="nav-element" type="submit" name="logout-user"
+				value="logout-user">Log Out</button>
+		</div>
+	</form>
 
-			<div class="form-group">
-				<input type="submit" class="btn btn-primary" value="Test Single Payment">
-			</div>
-		</form>
-	</div>
 </body>
 </html>

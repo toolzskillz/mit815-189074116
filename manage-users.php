@@ -33,8 +33,6 @@ if (isset($_POST['create-users'])) {
             echo '<p class="error">Something went wrong!</p>';
         }
     }
-} else {
-    header('Location: login.php');
 }
 ?>
 
