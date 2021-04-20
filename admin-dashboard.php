@@ -3,7 +3,6 @@ session_start();
 include ('config.php');
 if (isset($_POST['users'])) {
     header('Location: manage-users.php');
-    exit();
 } else if (isset($_POST['class'])) {
     header('Location: manage-class.php');
 } else if (isset($_POST['venues'])) {
@@ -123,7 +122,6 @@ p.error {
 			<button class="nav-element" type="submit" name="logout"
 				value="logout">Log Out</button>
 		</div>
-
 	</form>
 
 </body>

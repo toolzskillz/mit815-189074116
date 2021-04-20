@@ -24,6 +24,8 @@ if (isset($_POST['create-venue'])) {
     // echo '<p class="error">Something went wrong!</p>';
     // }
     // }
+} else if (isset($_POST['logout'])) {
+    header('Location: login.php');
 }
 ?>
 
