@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ('config.php');
+
 if (isset($_POST['create-users'])) {
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
@@ -41,78 +42,7 @@ if (isset($_POST['create-users'])) {
 <head>
 <meta charset="UTF-8">
 <title>SIGNUP</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-<style type="text/css">
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-
-body {
-	margin: 50px auto;
-	text-align: center;
-	width: 800px;
-}
-
-h1 {
-	font-family: 'Passion One';
-	font-size: 2rem;
-	text-transform: uppercase;
-}
-
-label {
-	width: 150px;
-	display: inline-block;
-	text-align: left;
-	font-size: 1.5rem;
-	font-family: 'Lato';
-}
-
-input {
-	border: 2px solid #ccc;
-	font-size: 1.5rem;
-	font-weight: 100;
-	font-family: 'Lato';
-	padding: 10px;
-}
-
-form {
-	margin: 25px auto;
-	padding: 20px;
-	border: 5px solid #ccc;
-	width: 500px;
-	background: #eee;
-}
-
-div.form-element {
-	margin: 20px 0;
-}
-
-button {
-	padding: 10px;
-	font-size: 1.5rem;
-	font-family: 'Lato';
-	font-weight: 100;
-	background: blue;
-	color: white;
-	width: 300px;
-	border: none;
-}
-
-p.success, p.error {
-	color: white;
-	font-family: lato;
-	background: yellowgreen;
-	display: inline-block;
-	padding: 2px 10px;
-}
-
-p.error {
-	background: orangered;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<h2>MANAGE USER</h2>
@@ -127,8 +57,49 @@ p.error {
 			<label>Password</label> <input type="password" name="password"
 				required />
 		</div>
-		<button type="submit" name="create-users" value="create-users">Create
-			User</button>
+		
+		<div class="form-element">
+			<button type="submit" name="create-user" value="create-user">Create
+				User</button>
+		</div>
+		
+		<div class="form-element">
+			<button type="submit" name="update-user" value="update-user">Update
+				User</button>
+		</div>
+		
+		<div class="form-element">
+			<button type="submit" name="delete-user" value="delete-user">Delete
+				User</button>
+		</div>
+		
+		<div class="form-element">
+
+			<table id="t01">
+				<tr>
+					<th>Full name</th>
+					<th>Email</th>
+					<th>password</th>
+				</tr>
+
+		<?php
+
+$query = $connection->prepare("SELECT * FROM users");
+$query->execute();
+foreach ($query as $value) {
+
+    $tableCol1 = '<tr>
+    <td>' . $value['fullname'] . '</td>';
+    $tableCol2 = '<td>' . $value['email'] . '</td>';
+    $tableCol3 = '<td>' . $value['password'] . '</td> </tr>';
+
+    echo $tableCol1 . $tableCol2 . $tableCol3;
+}
+
+?>
+			</table>
+
+		</div>
 	</form>
 </body>
 </html>
